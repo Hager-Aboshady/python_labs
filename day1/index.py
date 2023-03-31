@@ -1,7 +1,9 @@
 text = input('Enter your String ')
 
 # find the index of i
-result = text.index('i')
-
-print(result)
+count=0
+for char in text:
+    if (char == 'i'):
+       print("The index is ",count)
+    count+=1
 
