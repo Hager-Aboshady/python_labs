@@ -25,7 +25,6 @@ def repeatingFun():
 
 
 
-
 repeatingFun()
 
 
@@ -50,31 +49,13 @@ repeatingFun()
 
 
 
-    """
-    count= 0
-    total=0 
-    avg=0
 
-    userIn=input("Please Enter an Integer : ")
-    
-    while userIn.isdigit():
-        l=list(userIn.split(" "))
-        if len(l)==1:
-            userIn=int(userIn)
-            count=+1
-            total=total+userIn
-            avg=total/count
-            userIn=("Please Enter another one : ")
-        else:
-            continue    
 
-    if(userIn=="done" or userIn=="Done"):
 
-        print(f"Number of Counts are {count}")
-        print(f"The Total is  {total}")
-        print(f"The average is  {avg}")
 
-    """
+
+
+
  
 
 

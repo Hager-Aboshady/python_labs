@@ -7,6 +7,7 @@ def get_user_info():
     email = input("Please enter your email address: ")
 
     email_regex = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    
     is_valid_email = re.match(email_regex, email)
     if is_valid_email:
         print(f"Name: {name}")
