@@ -1,56 +1,67 @@
 
-    """
-    count= 0
-    total=0 
-    avg=0
+# #     """
+# #     count= 0
+# #     total=0 
+# #     avg=0
 
-    userIn=input("Please Enter an Integer : ")
+# #     userIn=input("Please Enter an Integer : ")
     
-    while userIn.isdigit():
-        l=list(userIn.split(" "))
-        if len(l)==1:
-            userIn=int(userIn)
-            count=+1
-            total=total+userIn
-            avg=total/count
-            userIn=("Please Enter another one : ")
-        else:
-            continue    
+# #     while userIn.isdigit():
+# #         l=list(userIn.split(" "))
+# #         if len(l)==1:
+# #             userIn=int(userIn)
+# #             count=+1
+# #             total=total+userIn
+# #             avg=total/count
+# #             userIn=("Please Enter another one : ")
+# #         else:
+# #             continue    
 
-    if(userIn=="done" or userIn=="Done"):
+# #     if(userIn=="done" or userIn=="Done"):
 
-        print(f"Number of Counts are {count}")
-        print(f"The Total is  {total}")
-        print(f"The average is  {avg}")
+# #         print(f"Number of Counts are {count}")
+# #         print(f"The Total is  {total}")
+# #         print(f"The average is  {avg}")
 
-    """
-
-
+# #     """
 
 
 
 
 
-""" 
-def longest_substring(string):
-    longest = ''
-    current = ''
 
-    for i in range(len(string)):
-        if (i == 0 or string[i] >= string[i-1]):
-            current += string[i]
-        else:
-            if len(current) > len(longest):
-                longest = current
-            current = string[i]
 
-    if len(current) > len(longest):
-        longest = current
+# # """ 
+# # def longest_substring(string):
+# #     longest = ''
+# #     current = ''
 
-    print("Longest substring in alphabetical order is:", longest)
-"""
+# #     for i in range(len(string)):
+# #         if (i == 0 or string[i] >= string[i-1]):
+# #             current += string[i]
+# #         else:
+# #             if len(current) > len(longest):
+# #                 longest = current
+# #             current = string[i]
 
-string=input("Please Enter any String you want :  ")
+# #     if len(current) > len(longest):
+# #         longest = current
 
-longest_substring(string)
+# #     print("Longest substring in alphabetical order is:", longest)
+# # """
 
+# # string=input("Please Enter any String you want :  ")
+
+# # longest_substring(string)
+
+#-------------------------------------------------------
+
+
+# secret_word=random.choice(words_list)
+# 	#Choose a random item from a sequence. Here seq can be a list, tuple, string, or any iterable like range.
+
+# 
+# print("The Secret word consists of  ",end='')
+#  #To print in the same line in Python, 
+#  # you can use the end parameter of the print() function. 
+#  # By default, the end parameter is set to '\n', which adds a newline character after the printed string. To print without adding a newline character, you can set the end parameter to an empty string (''). 
