@@ -1,3 +1,5 @@
+#Write a program that prints the locations of "i" character in any string you added
+
 text = input('Enter your String ')
 
 # find the index of i

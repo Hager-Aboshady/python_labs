@@ -1,3 +1,6 @@
+
+#Write a program that counts up the number of vowels [a, e, i, o,u] contained in the string.
+
 userIn = input("Please Enter a String: ")
 
 vowels = ['a', 'e', 'i', 'o', 'u']

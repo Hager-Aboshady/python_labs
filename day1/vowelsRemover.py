@@ -1,3 +1,7 @@
+#Write a program that remove all vowels from the input word and generate a brief version of it.
+
+
+
 userIn = input("Please Enter a String: ")
 
 vowels = ['a', 'e', 'i', 'o', 'u']

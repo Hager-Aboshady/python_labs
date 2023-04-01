@@ -1,3 +1,6 @@
+#Write a program that generate a multiplication table from 1 to the number passed.
+
+
 num = int(input("Enter a number: "))
 
 list_of_lists = []

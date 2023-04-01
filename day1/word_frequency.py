@@ -1,3 +1,6 @@
+#Write a program that prints the number of times the string 'iti'occurs in anystring.
+
+
 sentence = input("Please Enter a Statement ")
 word = "iti"
 
