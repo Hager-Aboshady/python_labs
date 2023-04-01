@@ -12,8 +12,14 @@ def myfun (num):
 
 
 
-num=int(input("Please Enter a Number : "))
-myfun(num)
+num=input("Please Enter a Number : ")
+
+if num.isdigit():
+    num=int(num)
+    myfun(num)
+else:
+    print("Invalid Input")
+
  
 
 
