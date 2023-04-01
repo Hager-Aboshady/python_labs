@@ -1,15 +1,14 @@
 def myfun (num):
     
      if(num%3==0 and num%5==0):
-        print("FIZZ BUZZ")
+          print("FIZZ BUZZ")
      elif(num%5==0):
-        print("BUZZ")
+          print("BUZZ")
      elif(num%3==0):
-        print("FIZZ") 
+         print("FIZZ") 
      else:
-        print("This Number is not divisable by 3 nor 5 ")  
+         print("This Number is not divisable by 3 nor 5 ")  
        
-
 
 
 num=input("Please Enter a Number : ")
