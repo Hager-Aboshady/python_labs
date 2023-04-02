@@ -5,16 +5,16 @@ name=input("Please Enter your Name to start the Game : ")
 
 print(f"Welcome {name} to Hangman Game !")
 
-words_list=['apple','elephant,','pizza','banana','hello','world','goat','tiger']
+words_list=['apple','elephant,','pizza','banana','hello','world','goat','tiger','cat ']
 #words_list=['cat']
 
-secret_word=random.choice(words_list)                   #Choose a random item from a the list 
+secret_word=random.choice(words_list)                               #Choose a random item from a the list 
 	
 turns=7 
 word_in_progress=''
 letters=[]
 
-print("you are looking for a word which letters are  :   ",end='')         #we assign end='' to print in the same line in Python 
+print("you are looking for a word that consists of :   ",end='')   #we assign end='' to print in the same line in Python 
     
 for i in range(len(secret_word)):
 

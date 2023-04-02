@@ -1,6 +1,5 @@
 def repeatingFun():
 
-
     count = 0
     total = 0
     while True:
@@ -9,7 +8,7 @@ def repeatingFun():
             userIn = int(userIn)
             count += 1
             total += userIn
-        elif userIn.lower() == "done":
+        elif userIn== "done":
             break
         else:
             print("Invalid input")
@@ -23,7 +22,7 @@ def repeatingFun():
         print("No valid inputs were entered")
 
 
-repeatingFun()
+repeatingFun() 
 
 
 
