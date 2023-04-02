@@ -19,7 +19,6 @@ guesses = ''
 turns = 7
 
 
-while 
 
 while turns > 0:
 
