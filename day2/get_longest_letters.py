@@ -25,9 +25,11 @@ def get_longest_letters(string):
   #  print ("The longest One is :: ",longest_letters)    #will print it as  a list 
         
 
-    s=input("Please Enter any String you want :  ")
 
-    get_longest_letters(s)
+
+s=input("Please Enter any String you want :  ")
+
+get_longest_letters(s)
 
 
 
