@@ -11,7 +11,6 @@ words_list=['apple','elephant,','pizza','banana','hello','world','goat','tiger',
 secret_word=random.choice(words_list)                               #Choose a random item from a the list 
 	
 turns=7 
-word_in_progress=''
 letters=[]
 
 print("you are looking for a word that consists of :   ",end='')   #we assign end='' to print in the same line in Python 
@@ -19,7 +18,7 @@ print("you are looking for a word that consists of :   ",end='')   #we assign en
 for i in range(len(secret_word)):
 
     print(" _ ", end='')
-    letters.append("_")  
+    letters.append(" _ ")  
 
 print(" ")   
 
@@ -33,10 +32,11 @@ while turns > 0 :
              for i in range(len(secret_word)):
              
                    if(secret_word[i]==guessed_letter):
-                         letters[i]=guessed_letter
+                         letters[i]=guessed_letter         #access this index and replace it => replace _ with this letter 
 
-             if("_"  not in letters):
+             if(" _ "  not in letters):
                    print(" Congratulations !! You Win ! ")
+                   
                    break
         
         separator = ''
@@ -45,8 +45,9 @@ while turns > 0 :
         print("You've guessed until now : ",output_letters)       
 
 
-if("_"  in letters):
+if(" _ "  in letters):
     print("You Lose, Game Over")
     
 
+print("The Secret Word was : " ,secret_word)
     

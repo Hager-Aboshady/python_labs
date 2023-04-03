@@ -9,3 +9,4 @@ for char in text:
        print("The index is ",count)
     count+=1
 
+#enumerate

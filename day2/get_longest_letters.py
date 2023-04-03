@@ -10,7 +10,8 @@ def get_longest_letters(string):
         else:
 
             if len(letters) > len(longest_letters):   #check that  if the current list is the longest one and if so set it to longest
-                 longest_letters = letters              
+                 longest_letters = letters        
+                      #bn3ml save l a5r version w n3tbrha longest w b3deen bn3ml rest b2a 
             letters=[]              #reset the list (because the order is different )to contain the  current letter  and start  again
             letters.append(string[i])
 

@@ -2,8 +2,8 @@
 
 inList=[]
 for i in range(5):
- userIN=input("Please Enter your List Element ")
- inList.append(userIN)
+    userIN=input("Please Enter your List Element ")
+    inList.append(userIN)
 
 
 ascendingList=sorted(inList)

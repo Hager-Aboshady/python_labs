@@ -11,4 +11,5 @@ s=int(input("please enter the number you want to start from : "))
 
 myfun(l,s)
 print("your list is: ",list)
+
         
