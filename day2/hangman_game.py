@@ -4,8 +4,8 @@ name=input("Please Enter your Name to start the Game : ")
 
 print(f"Welcome {name} to Hangman Game !")
 
-#words_list=['apple','elephant,','pizza','banana','hello','world','goat','tiger','cat ']
-words_list=['cat']
+words_list=['apple','elephant,','pizza','banana','hello','world','goat','tiger','cat ']
+#words_list=['cat']
 
 secret_word=random.choice(words_list)                               #Choose a random item from a the list 
 	
@@ -27,18 +27,19 @@ while turns > 0 :
         guessed_letter=input("Guess and Enter a letter:  ")
 
         if(guessed_letter in secret_word ):
+            if(guessed_letter not in letters):
              
-             for i in range(len(secret_word)):
+                for i in range(len(secret_word)):
              
-                   if(secret_word[i]==guessed_letter):
-                         letters[i]=guessed_letter         #access this index and replace it => replace _ with this letter 
+                     if(secret_word[i]==guessed_letter):
+                             letters[i]=guessed_letter         #access this index and replace it => replace _ with this letter 
 
-             if(" _ "  not in letters):
-                   print(" Congratulations !! You Win ! ")
+                if(" _ "  not in letters):
+                     print(" Congratulations !! You Win ! ")
                    
-                   break
-        elif(guessed_letter in letters):
-              print("This letter is already exist !! ")
+                     break
+            elif(guessed_letter in letters):
+               print("This letter is already exist !! ")
         else:
               turns=turns-1
 
