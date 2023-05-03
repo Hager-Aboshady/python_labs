@@ -1,0 +1,1 @@
+{'obj1': <__main__.Queue object at 0x7f5601e8fd30>, 'obj2': <__main__.Queue object at 0x7f5601e8fc70>, 'obj3': <__main__.Queue object at 0x7f5601e8fbe0>}
