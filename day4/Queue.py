@@ -4,7 +4,7 @@ class Queue:
 
     def insert(self, value):
         self.myList.append(value)
-        print("New Item has been added Successfully")
+        print(f"{value} has been added Successfully")
 
     def pop(self):
         if self.is_empty():
@@ -12,15 +12,15 @@ class Queue:
             return None
         else:
             self.myList.pop(0)
-            print( "Item is popped")
+            print("Item is popped")
             return True
 
     def is_empty(self):
         if len(self.myList) == 0:
-            print("The Queue is Empty ")
+            # print("The Queue is Empty ")
             return True
         else:
-            print(f"The Queue is Not Empty and The number of its items is {len(self.myList)} ")
+            # print(f"The Queue is Not Empty and The number of its items is {len(self.myList)} ")
             return False    
 
 
@@ -30,6 +30,6 @@ q.insert(2)
 
 # print(q.pop())  #  1
 print(q.is_empty())  # False
-# print(q.pop())  
+print(q.pop())  
 # print(q.pop())  # output: Warning: The queue is empty. None
 # print(q.is_empty())  # output: True
