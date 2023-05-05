@@ -1,12 +1,13 @@
 import time
 from helpers import *
+import uuid
 from filesOperations import save_project
 
 
 def createProj():
     title=input("Please Enter the Project's title : ")
     details=input("Please Enter the Project's details : ")
-    totalTarget=ask_for_num("Please Enter the Project's total target : ")
+    totalTarget=input("Please Enter the Project's total target : ")
 
     while True:
         
@@ -30,12 +31,10 @@ def createProj():
     fields=current_user.split(':')
     current_email=fields[0]
     time_id=round(time.time())
-    projectInfo=f"{title}:{details}:{totalTarget}:{startDate}:{endDate}:{current_email}:{time_id}\n"
+    ID= uuid.uuid4()  
+    projectInfo=f"{ID}:{title}:{details}:{totalTarget}:{startDate}:{endDate}:{current_email}:{time_id}\n"
 
     save_project(projectInfo)
-
-
-
 
 def viewProjs():
     try:
@@ -48,47 +47,66 @@ def viewProjs():
         return projFile.readlines()
                 
 
-    # projFile=open('projects.txt',"r")
-    # print("Title:Details:total_target:st_date:end_date:created_by")
-    # print(projFile.read())
 
-
-# def deleteProj():
-#     title=input("Please Enter the Project's title you want to edit : ")
-
-#     allProj=viewProjs()
-#     for proj in allProj:
-#         print(proj.strip())
-
-
-
-
-
-def search_using_time(time_id):
-    allProj=viewProjs()
-    for proj in allProj:
-        if str(time_id)==proj.strip("\n").split(':')[6]:
-            return True
-        else:
-            print("This Project doesn't exist !! ")
-            return False
-
-
-
-
-
-def editProjs():
+def delProj():
     while True:
-        title=input("Please Enter the Project's title you want to edit : ")
-        if is_exist(title,0):
+        ID=input("Please Enter the Project's ID you want to delete : ")
+        if is_exist(ID):
+           
             if is_authorized():
-
-            
-
+                
+                allProj=getProjs()
+                projFile=open('projects.txt','w')
+                for proj in allProj:
+                    if  proj.strip('\n').split(":")[0]!=str(ID):
+                        projFile.write(proj)
                 break
+            else:
+                print("You are not authorized to delete this projet \U0001F512")        
+                 
+
         
         else:
             print("This Project doesn't exist !! Please Try Again ")
+#delProj()
+#createProj()
+
+
+def search_using_time():
+    while True:
+        time_id=ask_for_num("Please Enter the time you want to search by \U0001F55B : ")
+        allProj=getProjs()
+
+        for proj in allProj:
+            if str(time_id)==proj.strip("\n").split(':')[7]:
+                print("--------Search Results-------\U0001F440")
+                print(proj)
+                
+                break
+            else:
+                print("--------Search Results------- \U0001F440")
+                print("This Project doesn't exist \U0001F625 ")
+                
+
+search_using_time()
+
+
+
+# def editProjs():
+#     while True:
+#         title=input("Please Enter the Project's title you want to edit : ")
+#         if is_exist(title,0):
+#             if is_authorized():
+
+
+                
+
+            
+
+#                 break
+        
+#         else:
+#             print("This Project doesn't exist !! Please Try Again ")
 
 
 

@@ -1,6 +1,5 @@
 import re
 import datetime
-from projectFunctions import viewProjs
 def ask_for_num(msg):
     while True:
       
@@ -22,6 +21,15 @@ def ask_for_str(msg):
             return (val)
         else:
             print("Invalid Input. Please try again and enter a valid string")
+
+def getProjs():
+    try:
+        projFile=open('projects.txt',"r")
+    except Exception as e:
+        return False
+    else:
+        return projFile.readlines()
+                
 
 
 def validate_email():
@@ -87,26 +95,28 @@ def is_valid_date(date_str):
         return False
 
      
-def is_exist(val,fieldNo):
-    allProjs=viewProjs()
-    for proj in allProjs:
-        if proj[fieldNo]==val:
-            return True
+def is_exist(ID):
+    # allProjs=viewProjs()
+    # for proj in allProjs:
+    #     if proj[fieldNo]==val:
+    #         return True
         
 
+    try:
+        projFile=open('projects.txt','r')
+    except Exception as e:
+        return False
+    else:
 
-
-    # try:
-    #     projFile=open(filePath,'r')
-    # except Exception as e:
-    #     return False
-    # else:
-
-    #     for line in projFile:
-    #         fields=line.strip().split(':')
-    #         fieldVal = fields[fieldNo]
-    #         if fieldVal==val:
-    #             return True
+        allProj=projFile.readlines()
+        for proj in allProj:
+            if proj.strip('\n').split(":")[0]==str(ID):
+                return True
+            
+            # fields=line.strip().split(':')
+            # fieldVal = fields[fieldNo]
+            # if fieldVal==val:
+            #     return True
             
  
 def is_authorized():
@@ -114,24 +124,30 @@ def is_authorized():
 
 
     try:
-        # projFile=open('projects.txt','r')
-        userFile=open('users.txt','r')
+        projFile=open('projects.txt','r')
+        userFile=open('logs.txt','r')
 
     except Exception as e:
         return False
     else:
         current_user=userFile.read()
+        print(current_user)
         fields=current_user.split(":")
-        current_email=fields[0]
+        print(fields)
+        current_email=fields[0]   #in login file
+        print(current_email)
 
-        allProjs=viewProjs()
+        allProjs=projFile.readlines()
+        
         for proj in allProjs:
-            if proj[5]==current_email:
+            #print (proj)
+            if proj.strip('\n').split(":")[6]==current_email:
+                print("hhhggg")
                 return True
         
 
 
-
+# is_authorized()
         # for line in projFile:
             
         #     fields=line.strip().split(':')
