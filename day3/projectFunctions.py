@@ -1,6 +1,7 @@
 import time
 from helpers import *
 import uuid
+from prettytable import PrettyTable
 from filesOperations import save_project
 
 
@@ -15,7 +16,7 @@ def createProj():
         if is_valid_date(startDate):
             break
         else:
-            print("Invalid Date Format !! Please Try Again  ")
+            print("Invalid Date Format \U00002757 \U00002757  Please Try Again  ")
 
     while True:
         
@@ -23,7 +24,7 @@ def createProj():
         if is_valid_date(endDate):
             break
         else:
-            print("Invalid Date Format !! Please Try Again  ")            
+            print("Invalid Date Format \U00002757 \U00002757  Please Try Again  ")            
 
 
     logsFile=open('logs.txt',"r")
@@ -36,16 +37,25 @@ def createProj():
 
     save_project(projectInfo)
 
+
+
 def viewProjs():
     try:
-        projFile=open('users.txt',"r")
-    except Exception as e:
+        projFile = open('projects.txt', 'r')
+    except:
+        print(colored('Error: Unable to open file \U00002757',"red"))
         return False
-    else:
-        print("Title:Details:total_target:st_date:end_date:created_by")
-        print(projFile.read())
-        return projFile.readlines()
-                
+
+    proj_table = PrettyTable()
+    proj_table.field_names = ['ID', 'Title', 'Details', 'Total Target', 'Start Date', 'End Date', 'Created By']
+
+    for line in projFile:
+        proj = line.strip().split(':')
+        proj_table.add_row([proj[0], proj[1], proj[2], proj[3], proj[4], proj[5], proj[6]])
+
+    print(proj_table)
+
+
 
 
 def delProj():
@@ -62,16 +72,17 @@ def delProj():
                         projFile.write(proj)
                 break
             else:
-                print("You are not authorized to delete this projet \U0001F512")        
+                print(colored("You are not authorized to delete this projet \U0001F512","red"))     
                  
 
         
         else:
-            print("This Project doesn't exist !! Please Try Again ")
+            print("This Project doesn't exist 	\U00002757 \U00002757  Please Try Again ")
+
 
 def editProj():
     while True:
-        ID=input("Please Enter the Project's ID you want to edit : ")
+        ID=input(colored("Please Enter the Project's ID you want to edit : ", 'blue'))
         if is_exist(ID):
            
             if is_authorized():
@@ -83,12 +94,10 @@ def editProj():
                         # projFile.write(proj)
                         list=proj.strip('\n').split(":")
 
-                        list[1]=input("Please Enter the Project's new title : ")
-                        list[2]=input("Please Enter the Project's new details : ")
-                        list[3]=input("Please Enter the Project's new total target : ")
+                        list[1]=input(colored("Please Enter the Project's new title : ", 'yellow'))
+                        list[2]=input(colored("Please Enter the Project's new details : ", 'yellow'))
+                        list[3]=input(colored("Please Enter the Project's new total target : ", 'yellow'))
                         proj=":".join(list)
-                        
-
 
 
                     projFile.write(proj)
@@ -100,29 +109,21 @@ def editProj():
         
         else:
             print("This Project doesn't exist \U0001F625 !! Please Try Again ")
-#createProj()
-#editProj()
-#delProj()
-
-
-#delProj()
-#createProj()
 
 
 def search_using_time():
     while True:
-        time_id=ask_for_num("Please Enter the time you want to search by \U0001F55B : ")
-        allProj=getProjs()
+        time_id = ask_for_num("Please Enter the time you want to search by \U0001F55B : ")
+        allProj = getProjs()
 
         for proj in allProj:
-            if str(time_id)==proj.strip("\n").split(':')[7]:
-                print("--------Search Results-------\U0001F440")
-                print(proj)
-                
+            if str(time_id) == proj.strip("\n").split(':')[7]:
+                print(colored("--------Search Results-------\U0001F440", "green"))
+                print(colored(proj, "blue"))
                 break
             else:
-                print("--------Search Results------- \U0001F440")
-                print("This Project doesn't exist \U0001F625 ")
-                
+                print(colored("--------Search Results------- \U0001F440", "green"))
+                print(colored("This Project doesn't exist \U0001F625", "red"))
+                break
 
 

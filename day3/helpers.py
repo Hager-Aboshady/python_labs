@@ -1,4 +1,5 @@
 import re
+from termcolor import colored
 import datetime
 def ask_for_num(msg):
     while True:
@@ -8,42 +9,35 @@ def ask_for_num(msg):
             
             return int(val)
         else:
-            print("Invalid Input. Please try again and enter a valid number")
-
-
+            print("Invalid Input \U00002757 \U00002757  . Please Try Again and Enter a valid number")
 
 def ask_for_str(msg):
     while True:
-      
-        val=input(msg)
+        val = input(colored(msg, "yellow"))
         if val.isalpha():
-            
-            return (val)
+            return val
         else:
-            print("Invalid Input. Please try again and enter a valid string")
+            print(colored("Invalid input \U00002757 \U00002757  . Please Try Again and Enter a valid string", "red"))
 
 def getProjs():
     try:
         projFile=open('projects.txt',"r")
     except Exception as e:
+        print(colored('Error: Unable to open file \U00002757',"red"))
         return False
     else:
         return projFile.readlines()
                 
 
-
 def validate_email():
     while True:
-    
-        email = input("Please enter your email address: ")
+        email = input(colored("Please enter your email address: ", "blue"))
         email_regex = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-        
         is_valid_email = re.match(email_regex, email)
         if is_valid_email:
             return email
         else:
-            print("Invalid email. Please enter a valid email address: ")
-
+            print(colored("Invalid email \U00002757 \U00002757 . Please Try Again and Enter a valid email address.", "red"))
 
 
 def is_email_exist(email):
@@ -96,12 +90,6 @@ def is_valid_date(date_str):
 
      
 def is_exist(ID):
-    # allProjs=viewProjs()
-    # for proj in allProjs:
-    #     if proj[fieldNo]==val:
-    #         return True
-        
-
     try:
         projFile=open('projects.txt','r')
     except Exception as e:
@@ -113,11 +101,7 @@ def is_exist(ID):
             if proj.strip('\n').split(":")[0]==str(ID):
                 return True
             
-            # fields=line.strip().split(':')
-            # fieldVal = fields[fieldNo]
-            # if fieldVal==val:
-            #     return True
-            
+
  
 def is_authorized():
     try:
@@ -128,28 +112,19 @@ def is_authorized():
         return False
     else:
         current_user=userFile.read()
-        #print(current_user)
+      
         fields=current_user.split(":")
-        #print(fields)
+     
         current_email=fields[0]   #in login file
-        #print(current_email)
+     
 
         allProjs=projFile.readlines()
         
         for proj in allProjs:
-            #print (proj)
+           
             if proj.strip('\n').split(":")[6]==current_email:
-                #print("hhhggg")
+                
                 return True
         
 
 
-# is_authorized()
-        # for line in projFile:
-            
-        #     fields=line.strip().split(':')
-        #     createdBy_field = fields[5]
-        #     counter=counter+1
-
-        #     if createdBy_field==current_email:
-        #         return True       

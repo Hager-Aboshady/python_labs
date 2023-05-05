@@ -38,7 +38,7 @@ def validate_pass():
         if len(password) >= 8:
             return password
         else:
-            print("Please Try Again ! Your Password has to contain at least 8 Characters .")
+            print("Your Password has to contain at least 8 Characters \U00002757 \U00002757 Please Try Again ")
 
 
 def confirm_pass(password_to_confirm):
@@ -47,7 +47,7 @@ def confirm_pass(password_to_confirm):
         if(password_to_confirm== password):
             return password
         else:
-            print("Please Try Again ! The Password Confirmation doesn't match .")
+            print("The Password Confirmation doesn't match \U00002757 \U00002757 Please Try Again ")
 
 
 
@@ -68,7 +68,6 @@ def validate_phone_number():
             print(" The length of Phone number must be 10 digits and start with 0 ")
         
            
-# registerFun()
 
 
 
