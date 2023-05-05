@@ -68,6 +68,43 @@ def delProj():
         
         else:
             print("This Project doesn't exist !! Please Try Again ")
+
+def editProj():
+    while True:
+        ID=input("Please Enter the Project's ID you want to edit : ")
+        if is_exist(ID):
+           
+            if is_authorized():
+                
+                allProj=getProjs()
+                projFile=open('projects.txt','w')
+                for proj in allProj:
+                    if  proj.strip('\n').split(":")[0]==str(ID):
+                        # projFile.write(proj)
+                        list=proj.strip('\n').split(":")
+
+                        list[1]=input("Please Enter the Project's new title : ")
+                        list[2]=input("Please Enter the Project's new details : ")
+                        list[3]=input("Please Enter the Project's new total target : ")
+                        proj=":".join(list)
+                        
+
+
+
+                    projFile.write(proj)
+                break
+            else:
+                print("You are not authorized to edit this projet \U0001F512")        
+                 
+
+        
+        else:
+            print("This Project doesn't exist \U0001F625 !! Please Try Again ")
+#createProj()
+#editProj()
+#delProj()
+
+
 #delProj()
 #createProj()
 
@@ -88,44 +125,4 @@ def search_using_time():
                 print("This Project doesn't exist \U0001F625 ")
                 
 
-search_using_time()
 
-
-
-# def editProjs():
-#     while True:
-#         title=input("Please Enter the Project's title you want to edit : ")
-#         if is_exist(title,0):
-#             if is_authorized():
-
-
-                
-
-            
-
-#                 break
-        
-#         else:
-#             print("This Project doesn't exist !! Please Try Again ")
-
-
-
-    
-
-
-# viewProjs()
-# deleteProj()
-#createProj()
-
-# def is_email_exist(email):
-#     try:
-#         projFile=open('users.txt','r')
-#     except Exception as e:
-#         return False
-#     else:
-
-#         for line in projFile:
-#             fields=line.strip().split(':')
-#             email_field = fields[3]
-#             if email_field==email:
-#                 return True

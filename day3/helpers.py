@@ -120,9 +120,6 @@ def is_exist(ID):
             
  
 def is_authorized():
-
-
-
     try:
         projFile=open('projects.txt','r')
         userFile=open('logs.txt','r')
@@ -131,18 +128,18 @@ def is_authorized():
         return False
     else:
         current_user=userFile.read()
-        print(current_user)
+        #print(current_user)
         fields=current_user.split(":")
-        print(fields)
+        #print(fields)
         current_email=fields[0]   #in login file
-        print(current_email)
+        #print(current_email)
 
         allProjs=projFile.readlines()
         
         for proj in allProjs:
             #print (proj)
             if proj.strip('\n').split(":")[6]==current_email:
-                print("hhhggg")
+                #print("hhhggg")
                 return True
         
 

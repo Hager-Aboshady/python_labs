@@ -59,8 +59,16 @@ def delProj(ID):
     projFile=open('test.txt','w')
     for proj in allProj:
 
-        if proj.strip('\n').split(":")[0]!=ID:
-            projFile.write(proj)
+        if proj.strip('\n').split(":")[0]==ID:
+            print("before ",proj)
+            #proj.strip('\n').split(":")[1]=input("Please Enter the Project's new title : ")
+            newlist=proj.strip('\n').split(":")
+            newlist[0]=input("kk")
+            proj=":".join(newlist)
+            print (newlist)
+
+            #print("after ",proj.strip('\n').split(":")[0])
+        projFile.write(proj)
             #counter=counter+1
         
         #projFile.write(str(allProj))
@@ -75,7 +83,7 @@ def delProj(ID):
 
 
 
-delProj("1")
+delProj("2")
 
 
 # input text file
