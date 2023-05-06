@@ -1,73 +1,62 @@
-from helpers import ask_for_num,ask_for_str,validate_email,is_email_exist
+from helpers import ask_for_num, ask_for_str, validate_email, is_email_exist
 import re
 import uuid
 import time
 from filesOperations import *
 from getpass import getpass
+from termcolor import colored
 
 def registerFun():
-   print("You Want to Join us ? We're so grateful !! \U0001F929")
+   print(colored("You Want to Join us ? We're so grateful !! \U0001F929", "green"))
 
+   fname = ask_for_str("Please Enter Your First Name : ")
+   lname = ask_for_str("Please Enter Your Last Name : ")
 
-   fname=ask_for_str("Please Enter Your First Name : ")
-   lname=ask_for_str("Please Enter Your Last Name : ")
    while True:
-    email=validate_email()
-    if is_email_exist(email):
-        print("This Email is already exist")
-        continue
-    else:    
-        password=validate_pass()
-        confirmed_password=confirm_pass(password)
-        phone_num=validate_phone_number()
-        id = uuid.uuid4()    # Generate a UUID
-        time_id=round(time.time())
+      email = validate_email()
+      if is_email_exist(email):
+         print(colored("This Email is already in use", "red"))
+         continue
+      else:
+         password = validate_pass()
+         confirmed_password = confirm_pass(password)
+         phone_num = validate_phone_number()
+         id = uuid.uuid4()    # Generate a UUID
+         time_id = round(time.time())
 
-        user_info=f"{id}:{fname}:{lname}:{email}:{password}:{phone_num}:{time_id}\n"
+         user_info = f"{id}:{fname}:{lname}:{email}:{password}:{phone_num}:{time_id}\n"
 
-        save_user_data(user_info)
-        break
- 
-
+         if save_user_data(user_info):
+            print(colored("Registration Successful \U0001F44D", "green"))
+         else:
+            print(colored("Error occurred while registering. Please Try Again later.", "red"))
+         
+         break
 
 
 def validate_pass():
     while True:
-
-        password=getpass("Please Enter your Password: ")
+        password = getpass(colored("Please Enter your Password  : ","yellow"))
         if len(password) >= 8:
             return password
         else:
-            print("Your Password has to contain at least 8 Characters \U00002757 \U00002757 Please Try Again ")
+            print(colored("Your Password has to contain at least 8 Characters \U00002757 \U00002757 Please Try Again ", "red"))
 
 
 def confirm_pass(password_to_confirm):
     while True:
-        password=getpass("Please Enter your Password Again : ")
-        if(password_to_confirm== password):
+        password = getpass(colored("Please Enter your Password Again : ","yellow"))
+        if password_to_confirm == password:
             return password
         else:
-            print("The Password Confirmation doesn't match \U00002757 \U00002757 Please Try Again ")
-
+            print(colored("The Password Confirmation doesn't match \U00002757 \U00002757 Please Try Again ", "red"))
 
 
 def validate_phone_number():
     while True:
-        number=ask_for_num("Please Enter Your Phone Number : ")
-     
-        # print(len(str(number)))
-        # fchar=str(number)[0]
-        # print(fchar)
-     
+        number = ask_for_num(colored("Please Enter Your Phone Number : ","yellow"))
 
-        if len(str(number))== 10 :
-            # print("hhh")
+        if len(str(number)) == 10:
             return number
-
         else:
-            print(" The length of Phone number must be 10 digits and start with 0 ")
-        
-           
-
-
-
+            print(colored("The length of Phone number must be 10 digits and start with 0 ", "red"))

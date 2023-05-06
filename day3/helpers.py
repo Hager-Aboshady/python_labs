@@ -4,7 +4,7 @@ import datetime
 def ask_for_num(msg):
     while True:
       
-        val=input(msg)
+        val=input(colored(msg,"yellow"))
         if val.isdigit():
             
             return int(val)
@@ -31,7 +31,7 @@ def getProjs():
 
 def validate_email():
     while True:
-        email = input(colored("Please enter your email address: ", "blue"))
+        email = input(colored("Please enter your email address: ", "yellow"))
         email_regex = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         is_valid_email = re.match(email_regex, email)
         if is_valid_email:
@@ -103,7 +103,7 @@ def is_exist(ID):
             
 
  
-def is_authorized():
+def is_authorized(ID):
     try:
         projFile=open('projects.txt','r')
         userFile=open('logs.txt','r')
@@ -116,15 +116,40 @@ def is_authorized():
         fields=current_user.split(":")
      
         current_email=fields[0]   #in login file
+        #print (current_email)
      
 
         allProjs=projFile.readlines()
         
         for proj in allProjs:
            
-            if proj.strip('\n').split(":")[6]==current_email:
+            #print(proj.split(":")[6])
+            if str(ID)==proj.split(":")[0] and proj.split(":")[6]==current_email:
+               # print("hh")
+               
                 
                 return True
         
 
+# is_authorized()
 
+# def is_email_exist(email):
+# #     try:
+# #         fileobj=open('users.txt','r')
+# #     except Exception as e:
+# #         print("cantt")
+# #         return False
+# #     else:
+# #         import os
+
+# #         file_path = 'myfile.txt'
+# #         if os.stat('users.txt').st_size == 0:
+# #             #print('File is empty')
+# #             return True
+# #         else:
+# #             for line in fileobj:
+# #                 fields=line.strip().split(':')
+# #                 email_field = fields[3]
+# #                 if email_field==email:
+# #                     return True
+# #            # print('File is not empty')

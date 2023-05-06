@@ -22,11 +22,11 @@ def goToSecMenu():
         elif choice==0:
             break
         else:
-            print(colored("Invalid Input \U00002757\U00002757Please choose from 0 - 4", "red"))
+            print(colored("Invalid Input \U00002757\U00002757 Please choose from 0 - 4", "red"))
 
 
 
 
 
 
-goToSecMenu()
+
