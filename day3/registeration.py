@@ -54,9 +54,9 @@ def confirm_pass(password_to_confirm):
 
 def validate_phone_number():
     while True:
-        number = ask_for_num(colored("Please Enter Your Phone Number : ","yellow"))
+        number = input(colored("Please Enter Your Phone Number: ", "yellow"))
 
-        if len(str(number)) == 10:
+        if len(number) == 13 and number.startswith("+20"):
             return number
         else:
-            print(colored("The length of Phone number must be 10 digits and start with 0 ", "red"))
+            print(colored("The phone number must start with +20 and be 13 digits in length.", "red"))

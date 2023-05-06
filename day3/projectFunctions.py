@@ -115,9 +115,7 @@ def editProj():
         else :
             break       
 
-# #editProj()
-# createProj()
-# viewProjs()
+
 
 def search_using_time():
     while True:

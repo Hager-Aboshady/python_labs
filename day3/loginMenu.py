@@ -8,6 +8,7 @@ def goToSecMenu():
     print(colored(" --- To View all projects press 2 ---", "yellow"))
     print(colored(" --- To Update an existing project press 3 --- ", "yellow"))
     print(colored(" --- To Delete an existing project press 4 ----", "yellow"))
+    print(colored(" --- To Search for an existing project Using time press 5 ----", "yellow"))
     print(colored(" --- To Go back to the main menu press 0 ----", "green"))
     while True:
         choice = ask_for_num("Enter your choice: ")
@@ -19,6 +20,8 @@ def goToSecMenu():
             editProj()
         elif choice==4:
             delProj()
+        elif choice==5:
+            search_using_time()    
         elif choice==0:
             break
         else:

@@ -7,7 +7,6 @@ def save_user_data(userInfo):
         return False
     else:
         fileobj.write(userInfo)
-        #print("New user Data has been added Successfully \U0001F44D")
         return True  
     finally:
         fileobj.close()  

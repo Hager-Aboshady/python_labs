@@ -48,7 +48,7 @@ def is_email_exist(email):
     else:
 
         for line in fileobj:
-            fields=line.strip().split(':')
+            fields=line.strip().split(':') 
             email_field = fields[3]
             if email_field==email:
                 return True
@@ -131,25 +131,3 @@ def is_authorized(ID):
                 return True
         
 
-# is_authorized()
-
-# def is_email_exist(email):
-# #     try:
-# #         fileobj=open('users.txt','r')
-# #     except Exception as e:
-# #         print("cantt")
-# #         return False
-# #     else:
-# #         import os
-
-# #         file_path = 'myfile.txt'
-# #         if os.stat('users.txt').st_size == 0:
-# #             #print('File is empty')
-# #             return True
-# #         else:
-# #             for line in fileobj:
-# #                 fields=line.strip().split(':')
-# #                 email_field = fields[3]
-# #                 if email_field==email:
-# #                     return True
-# #            # print('File is not empty')
